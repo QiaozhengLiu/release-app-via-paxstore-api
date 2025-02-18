@@ -24,7 +24,6 @@ jobs:
   upload:
     runs-on: ubuntu-latest
     needs: approve
-    environment: upload app to paxstore via developer api
     steps:
       - name: step3 upload app to paxstore via developer api
         run: |
@@ -34,7 +33,6 @@ jobs:
   release:
     runs-on: ubuntu-latest
     needs: upload
-    environment: publish new apk to github release page
     steps:
       - name: step4 publish new apk to gihub release page
         run: |
