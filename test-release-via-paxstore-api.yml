@@ -1,0 +1,42 @@
+name: Release App via PAXSTORE API
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step1 checkout and build app
+        run: |
+          echo "step1: checkout and build app"
+          sleep 5s
+
+
+  approve:
+    runs-on: ubuntu-latest
+    needs: build
+    environment: release app via paxstore api
+    steps:
+      - name: step2 wait for approval
+        run: |
+          echo "step2: wait for approval"
+          sleep 5s
+
+  upload:
+    runs-on: ubuntu-latest
+    needs: approve
+    environment: upload app to paxstore via developer api
+    steps:
+      - name: step3 upload app to paxstore via developer api
+        run: |
+          echo "step3: upload app to paxstore via developer api"
+          sleep 5s
+
+  release:
+    runs-on: ubuntu-latest
+    needs: upload
+    environment: publish new apk to github release page
+    steps:
+      - name: step4 publish new apk to gihub release page
+        run: |
+          echo "step4: publish new apk to gihub release page"
+          sleep 5s
